@@ -1,0 +1,123 @@
+# Santa Teresa Costa Rica Directory App - Cursor Prompt
+
+Create a full-stack web application for a directory of businesses and services in Santa Teresa, Costa Rica.
+
+## Tech Stack Requirements:
+- **Backend**: Node.js with Express
+- **Database**: SQLite with proper schema
+- **Frontend**: HTML, CSS, JavaScript (vanilla)
+- **Styling**: Tailwind CSS
+- **Architecture**: Simple MVC pattern
+
+## Core Features:
+
+### 1. Business Directory
+- List all businesses with categories (restaurants, hotels, surf shops, tours, etc.)
+- Search functionality by name, category, or keywords
+- Filter by business type, location within Santa Teresa
+- Business detail pages with contact info, hours, description
+
+### 2. Database Schema (SQLite)
+```sql
+CREATE TABLE businesses (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  category TEXT NOT NULL,
+  description TEXT,
+  address TEXT,
+  phone TEXT,
+  email TEXT,
+  website TEXT,
+  hours TEXT,
+  latitude REAL,
+  longitude REAL,
+  image_url TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE categories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT UNIQUE NOT NULL,
+  icon TEXT
+);
+```
+
+### 3. API Endpoints
+- `GET /api/businesses` - List all businesses with optional filters
+- `GET /api/businesses/:id` - Get single business
+- `POST /api/businesses` - Add new business (admin)
+- `PUT /api/businesses/:id` - Update business (admin)
+- `DELETE /api/businesses/:id` - Delete business (admin)
+- `GET /api/categories` - List all categories
+
+### 4. Frontend Requirements
+- **Homepage**: Hero section with search bar, featured businesses, category grid
+- **Business Listings**: Grid/list view with filtering and search
+- **Business Detail**: Full business info page
+- **Add Business Form**: Simple form for new submissions
+- **Responsive Design**: Mobile-first approach using Tailwind
+
+### 5. Styling Guidelines
+- Use Tailwind CSS utility classes
+- Costa Rica/beach theme colors (blues, greens, sandy tones)
+- Clean, modern design with good typography
+- Responsive grid layouts
+- Smooth hover effects and transitions
+
+### 6. File Structure
+```
+santa-teresa-directory/
+├── server.js
+├── package.json
+├── database/
+│   ├── init.sql
+│   └── santa-teresa.db
+├── routes/
+│   ├── businesses.js
+│   └── categories.js
+├── public/
+│   ├── index.html
+│   ├── business-detail.html
+│   ├── add-business.html
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       ├── main.js
+│       ├── search.js
+│       └── business-form.js
+└── views/ (if using templates)
+```
+
+### 7. Key Features to Implement
+- Search businesses by name or category
+- Filter by business type (dropdown/chips)
+- Click to call phone numbers on mobile
+- Google Maps integration for addresses
+- Image upload for business photos
+- Basic admin panel for managing listings
+
+### 8. Seed Data
+Include sample businesses like:
+- Surf shops (Playa Carmen, Santa Teresa Surf Shop)
+- Restaurants (Restaurante Ylang Ylang, The Bakery)
+- Hotels (Latitude 10, Casa Corcovado)
+- Tour companies (horseback riding, zip lines)
+- Beach bars and cafes
+
+## Deliverables:
+1. Complete working Express server with SQLite database
+2. Responsive frontend with Tailwind CSS
+3. Basic CRUD operations for businesses
+4. Search and filter functionality
+5. Mobile-friendly design
+6. README with setup instructions
+
+## Additional Notes:
+- Keep the design clean and beachy
+- Make it fast and lightweight
+- Include proper error handling
+- Add basic form validation
+- Use semantic HTML for accessibility
+- Include a simple favicon and meta tags
+
+Start with the database schema and Express setup, then build the API endpoints, and finally create the frontend interface.
