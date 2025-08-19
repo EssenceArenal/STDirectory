@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose();
 const multer = require('multer');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Database connection
 const dbPath = path.join(__dirname, 'database/santa-teresa.db');
