@@ -39,6 +39,90 @@ const upload = multer({ storage: storage });
 app.use('/api/businesses', require('./routes/businesses'));
 app.use('/api/categories', require('./routes/categories'));
 
+// Special Santa Teresa routes
+app.get('/api/surf-report', (req, res) => {
+    // Mock surf report data for Santa Teresa 2025-2026
+    const surfReport = {
+        location: 'Santa Teresa, Costa Rica',
+        lastUpdated: new Date().toISOString(),
+        season: '2025-2026',
+        spots: [
+            {
+                name: 'Playa Santa Teresa',
+                coordinates: { lat: 9.6485, lng: -85.1705 },
+                currentConditions: {
+                    waveHeight: '3-5 ft',
+                    windSpeed: '8 mph',
+                    windDirection: 'NE',
+                    tide: 'Rising',
+                    nextTide: '2:30 PM - High',
+                    surfQuality: 'Good',
+                    rating: 7.5,
+                    bestTime: 'Early morning (6-9 AM)'
+                }
+            },
+            {
+                name: 'Playa Carmen',
+                coordinates: { lat: 9.6456, lng: -85.1712 },
+                currentConditions: {
+                    waveHeight: '2-4 ft',
+                    windSpeed: '6 mph',
+                    windDirection: 'NE',
+                    surfQuality: 'Fair to Good',
+                    rating: 6.5,
+                    bestTime: 'Morning sessions (7-10 AM)'
+                }
+            }
+        ],
+        weather: {
+            temperature: '82°F (28°C)',
+            humidity: '75%',
+            sunrise: '5:45 AM',
+            sunset: '5:30 PM',
+            uvIndex: 9
+        }
+    };
+    res.json(surfReport);
+});
+
+app.get('/api/yoga-schedule', (req, res) => {
+    const yogaSchedule = {
+        location: 'Santa Teresa, Costa Rica',
+        lastUpdated: new Date().toISOString(),
+        studios: [
+            {
+                name: 'Nahele Lodge',
+                address: 'Santa Teresa Beach',
+                phone: '+506 2640-1001',
+                schedule: [
+                    {
+                        day: 'Daily',
+                        classes: [
+                            {
+                                time: '7:00 AM',
+                                type: 'Morning Flow',
+                                instructor: 'Maria',
+                                duration: '75 min',
+                                level: 'All Levels',
+                                price: '$20'
+                            },
+                            {
+                                time: '5:30 PM',
+                                type: 'Sunset Yoga',
+                                instructor: 'Carlos',
+                                duration: '60 min',
+                                level: 'Beginner',
+                                price: '$18'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    };
+    res.json(yogaSchedule);
+});
+
 // Serve main pages
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
