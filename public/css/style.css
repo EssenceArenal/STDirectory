@@ -1,0 +1,235 @@
+/* Santa Teresa Directory - Custom Styles */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Business card hover effects */
+.business-card {
+    transition: all 0.3s ease;
+}
+
+.business-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Category card hover effects */
+.category-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    background-color: #0ea5e9;
+    color: white;
+}
+
+/* Featured badge */
+.featured-badge {
+    background: linear-gradient(45deg, #fbbf24, #f59e0b);
+}
+
+/* Hero gradient animation */
+.hero-gradient {
+    background: linear-gradient(-45deg, #0ea5e9, #16a34a, #0ea5e9, #059669);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Search input focus effects */
+.search-input:focus {
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+/* Button hover effects */
+.btn-primary {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading spinner */
+.spinner {
+    border-top-color: #0ea5e9;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile menu slide animation */
+.mobile-menu {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.show {
+    transform: translateY(0);
+}
+
+/* Image placeholder */
+.image-placeholder {
+    background: linear-gradient(135deg, #0ea5e9, #16a34a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+/* Form validation styles */
+.form-error {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.form-error:focus {
+    ring-color: #ef4444;
+    border-color: #ef4444;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Success states */
+.form-success {
+    border-color: #10b981;
+    background-color: #f0fdf4;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+    }
+    
+    .business-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #e5e7eb;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .business-card {
+        border: 2px solid #000;
+    }
+    
+    .btn-primary {
+        background: #000;
+        border: 2px solid #000;
+    }
+    
+    .btn-primary:hover {
+        background: #333;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+    /* Dark mode styles would go here */
+}
+
+/* Focus visible for better accessibility */
+.focus-visible {
+    outline: 2px solid #0ea5e9;
+    outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #0ea5e9;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}

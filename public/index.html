@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Teresa Directory - Discover Local Businesses</title>
+    <meta name="description" content="Your complete guide to businesses and services in Santa Teresa, Costa Rica. Find restaurants, hotels, surf shops, tours, and more.">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ocean-blue': '#0ea5e9',
+                        'sand': '#fbbf24',
+                        'palm-green': '#16a34a',
+                        'sunset': '#f97316',
+                        'coral': '#f43f5e'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-ocean-blue">🌴 Santa Teresa</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" class="text-gray-900 hover:text-ocean-blue px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#businesses" class="text-gray-500 hover:text-ocean-blue px-3 py-2 rounded-md text-sm font-medium">Businesses</a>
+                        <a href="/add-business" class="bg-ocean-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Add Business</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-ocean-blue focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#businesses" class="text-gray-500 block px-3 py-2 rounded-md text-base font-medium">Businesses</a>
+                <a href="/add-business" class="bg-ocean-blue text-white block px-3 py-2 rounded-md text-base font-medium">Add Business</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-ocean-blue to-palm-green text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Discover Santa Teresa
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">
+                Your complete guide to businesses and services in paradise
+            </p>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="hero-search"
+                        placeholder="Search for businesses, restaurants, hotels..."
+                        class="w-full px-6 py-4 text-gray-900 rounded-full text-lg focus:outline-none focus:ring-4 focus:ring-white/30"
+                    >
+                    <button 
+                        id="hero-search-btn"
+                        class="absolute right-2 top-2 bg-ocean-blue text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors"
+                    >
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Businesses -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Businesses</h2>
+                <p class="text-xl text-gray-600">Top-rated local favorites</p>
+            </div>
+            
+            <div id="featured-businesses" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Featured businesses will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Browse by Category</h2>
+                <p class="text-xl text-gray-600">Find exactly what you're looking for</p>
+            </div>
+            
+            <div id="categories-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Categories will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- All Businesses Section -->
+    <section id="businesses" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">All Businesses</h2>
+                    <p class="text-xl text-gray-600">Explore our complete directory</p>
+                </div>
+                
+                <!-- Filters -->
+                <div class="flex flex-col sm:flex-row gap-4 mt-6 md:mt-0">
+                    <select id="category-filter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ocean-blue focus:border-transparent">
+                        <option value="all">All Categories</option>
+                    </select>
+                    <input 
+                        type="text" 
+                        id="business-search"
+                        placeholder="Search businesses..."
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ocean-blue focus:border-transparent"
+                    >
+                </div>
+            </div>
+            
+            <!-- Business Results -->
+            <div id="business-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Business cards will be loaded here -->
+            </div>
+            
+            <!-- Loading State -->
+            <div id="loading" class="text-center py-8 hidden">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-ocean-blue"></div>
+                <p class="mt-2 text-gray-600">Loading businesses...</p>
+            </div>
+            
+            <!-- No Results -->
+            <div id="no-results" class="text-center py-12 hidden">
+                <div class="text-6xl mb-4">🔍</div>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">No businesses found</h3>
+                <p class="text-gray-600">Try adjusting your search or filter criteria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">🌴 Santa Teresa</h3>
+                    <p class="text-gray-400">Your complete guide to businesses and services in Santa Teresa, Costa Rica.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#businesses" class="text-gray-400 hover:text-white transition-colors">Businesses</a></li>
+                        <li><a href="/add-business" class="text-gray-400 hover:text-white transition-colors">Add Business</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <p class="text-gray-400">Have a business to add or questions?</p>
+                    <a href="/add-business" class="inline-block mt-2 bg-ocean-blue text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Get Listed
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Santa Teresa Directory. Made with ❤️ for the community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+    <script src="/js/search.js"></script>
+</body>
+</html>
