@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "init-db": "node scripts/init-db.js"
+    "init-db": "node scripts/init-db.js",
+    "init-santa-teresa": "node scripts/init-santa-teresa-db.js"
   },
   "keywords": ["santa-teresa", "costa-rica", "directory", "businesses"],
   "author": "",
